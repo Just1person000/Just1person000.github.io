@@ -15,7 +15,7 @@ let name;
 // }
 let Brawl_in_bar = 0;
 let health = 100;
-let cash = 5000;
+let cash = 500;
 let status = "Болеет";
 let engargy = "100";
 let gps = "Город Гарридан";
