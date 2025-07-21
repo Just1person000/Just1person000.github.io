@@ -4,7 +4,7 @@ let name;
 	}
 	for (let i = 0; i < name.length; i++) {
 		if (name[i] == " ") {
-			alert("Да пошёл ты!")
+			alert("Да пошёл ты! ПРОБЕЛЫ Я ЗАПРЕЩАЮ")
 			location.reload();
 		}
 	} 	
@@ -19,7 +19,7 @@ let cash = 500;
 let status = "Болеет";
 let engargy = "100";
 let gps = "Город Гарридан";
-let power = 100;
+let power = 1000;
 let food = 0;
 let kisel = 0;
 let fraction = "Отсутствует";
@@ -184,8 +184,12 @@ if (gps == "Рынок 'Драконье Пёрышко'" && thieves == 1 && cas
 
 
 
+if(TaskThievesKillCompleted == 0 && kisel == 0 ){
+	win();
+	kisel = 1;
+}else if (kisel == 1){
 
-
+}
 
 
 	if (health < 1) {
@@ -203,8 +207,22 @@ if (gps == "Рынок 'Драконье Пёрышко'" && thieves == 1 && cas
 			, 5000);
 		
 	}
+
+	
 }
 
+function win(){
+if (TaskThievesKillCompleted == 0) {
+		if (confirm("Молодец ты победил. Или нет? Хочешь продолжить игру?")	) {
+			alert("Приятной игры!");
+		}else{
+			location.reload();
+			
+		}
+		
+		
+	}
+}
 //----------------------------------------------------------------------------------------------//----------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------//----------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------//----------------------------------------------------------------------------------------------
@@ -315,7 +333,7 @@ function eat(){
    status = "Болеет";
        alert("Стрепня оказалась не свежей... Приносим свои извинения вот компенсация. Пожалуйста не говорите об этом.")
        cash = cash + 200;
-       alert( name + " получил 400 монет")
+       alert( name + " получил 200 монет")
 	}else if (cash > 79 && status != "Болеет") {
 		cash = cash - 80;
 		health = health + 3;
@@ -424,7 +442,7 @@ function buy() {
       if (cashSpent > cash){
       	alert("Монеток тут не хватает брат")
       }else{
-      alert("ok")
+      alert("На братишка забирай")
       cash = cash - costFood*how; 
       food = food + how	
       }
@@ -455,7 +473,7 @@ function sell(){
         		how = prompt("Сколько?");
         		if (monsterСrystal_common >= how) {
         			cost = 100;
-        			alert("ok")
+        			alert("Хорошо")
         			   monsterСrystal_common = monsterСrystal_common - how;
         			   cash = cash + cost*how	
         			    alert("Ты продал кристалы! Ты получил: " + (cost*how) + " монет")
@@ -468,7 +486,7 @@ function sell(){
         		how = prompt("Сколько?");
         		if (monsterСrystal_rare >= how) {
         			cost = 250;
-        			alert("ok")
+        			alert("Хорошо")
         			   monsterСrystal_rare = monsterСrystal_rare - how;
         			   cash = cash + cost*how	
         			    alert("Ты продал кристалы! Ты получил: " + (cost*how) + " монет")
@@ -481,7 +499,7 @@ function sell(){
         		how = prompt("Сколько?");
         		if (monsterСrystal_Mystical >= how) {
         			cost = 500;
-        			alert("ok")
+        			alert("Хорошо")
         			   monsterСrystal_Mystical = monsterСrystal_Mystical - how;
         			   cash = cash + cost*how	
         			    alert("Ты продал кристалы! Ты получил: " + (cost*how) + " монет")
@@ -494,7 +512,7 @@ function sell(){
         		how = prompt("Сколько?");
         		if (monsterСrystal_Legendary >= how) {
         			cost = 1000;
-        			alert("ok")
+        			alert("Хорошоk")
         			   monsterСrystal_Legendary = monsterСrystal_Legendary - how;
         			   cash = cash + cost*how	
         			    alert("Ты продал кристалы! Ты получил: " + (cost*how) + " монет")
@@ -511,7 +529,7 @@ function sell(){
 //----------------------------------------------------------------------------------------------
 
 function ThievesYou() {
-	let thieves_you = Math.random();
+	let thieves_you = Math.random(); // от 0 до 1
 	if (ThievesTaskJoinedCompleted !== 0) {
           alert("Ты не вор!")
 	} else if (thieves_you < 0.2) {
@@ -524,7 +542,7 @@ function ThievesYou() {
 		alert("Ты СВОровал чей то кошилёк")
 		cash = cash + 200;
 		
-	}else if (thieves_you < 0.9) {
+	}else if (thieves_you < 0.8) {
 		alert("Ты СВОровал чей то кошилёк")
 		cash = cash + 500;
 		
@@ -567,7 +585,7 @@ function fight(){
 	let b = Math.random();		//слyчайное число от 0 до 1
 	if (b > 0.9) {
 		alert("Бармен прекращает дракy и выкидывает вас прочь!");
-		gps = "Город 'Гарридан'";
+		gps = "Город Гарридан";
 		update();
 	}else{
 		if (status == "Очень пьяный") {
@@ -666,7 +684,7 @@ function monst_forest_fight(){
                 alert("Это обычный вульфич")
                 if (power > Wolfpower2) {
                 alert("Хорошая была битва")  
-                alert("Ты получил 2 обычный кристал")
+                alert("Ты получил 2 пару обычных кристалов")
                 engargy = engargy - 30;
                 monsterСrystal_common = monsterСrystal_common + 2;          
                 } else {
@@ -682,7 +700,7 @@ function monst_forest_fight(){
                 alert("Ты наткнулся на вожака стаи")
                 if (power > Wolfpower3) {
                 alert("Он сражался до последнего...")  
-                alert("Ты получил 2 необычный кристал")
+                alert("Ты получил 1 редкий кристал")
                 engargy = engargy - 30;
                 monsterСrystal_rare = monsterСrystal_rare + 1;          
                 } else {
