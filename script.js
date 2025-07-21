@@ -863,7 +863,7 @@ function buyHome(){
      }
      update()
  }
-
+}
 //-------------------------------------------
 function chillHome(){
 	if ( cash > -1) {
