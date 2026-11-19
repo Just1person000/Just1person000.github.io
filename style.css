@@ -1,144 +1,373 @@
-@font-face{
-	font-family: bob;
-	src: url(Orpheus.ttf);
-}
-body{
 
-}
+/* ================================= */
+/* ОСНОВНЫЕ НАСТРОЙКИ */
+/* ================================= */
 
-*{
-	outline: none;
-	margin: 0;
-	box-sizing: border-box;
-	font-family: bob;
+@font-face {
+    font-family: bob;
+    src: url(ofont.ru_HIbiny.ttf);
 }
 
-
-body{
-	width: 100%;
-	background-color: black;
-	height: 100%; 
+* {
+    outline: none;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: bob;
 }
 
-.main{
-	margin: 40px;
-	display: flex;
-	justify-content: center;
-	color: white;
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: black;
 }
 
-.buttons{
-	display: flex;
-	justify-content: center;
-width: 100%;
-margin-top: 300px;
-}
-.buttons button{
-box-shadow: 0px 0px 3px 1px white;
-width: 200px;
-height: 50px;
-font-size: 32px;
-background: none;
-}
-.buttons a{
-	text-decoration: none;
-	color: white
-}
-/*-------------------*/
+/* ================================= */
+/* ОСНОВНОЙ ИГРОВОЙ БЛОК */
+/* ================================= */
 
-
-
-
-
-
-
-.bg {
-	background-color: rgba(0, 0, 0, 0.7);
-	height: 100%;
-	width: 100%;
-	position: fixed;
-}
-.img{
-	width: 50%;
-	height: 600px;
-
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: 50% 50%;
-}
-.game{
-	display: flex;
-	justify-content: space-between;
-}
-.character{
-	width: 50%;
-	height: 600px;
-
-	background-image: url(img/papper.jpg);
-	background-size: cover;
-
-	padding: 100px;
-	font-size: 30px;
-
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-
-	box-shadow: inset 0px 0px 30px black; 
-}
-.action{
-	display: flex;
-	justify-content: space-between;
-	align-items: start;
-	padding: 20px 80px;
-	background-image: url(img/Wood.jpg);
-	background-size: contain;
-	height: 150px;
-}
-.action button{
-	height: 100px;
-	width: 300px;
-	font-size: 22px;
-	cursor: pointer;
-	border: 2px solid black;
-	border-radius: 7px;	
-	background-color: brown;
-	justify-content: space-between;
-	font-weight: 900;
-	color: white;
-	margin: 10px;
-}
-.Inventory{
-height: 50px;
-width: 200px;
-background-color: BurlyWood;
-font-size: 26px;
-transition: 0.5s;
-}
-.Inventory button{
-
+.game {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
+.character {
+    width: 50%;
+    height: 600px;
 
-.Inventory_window{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	position: fixed;
-	width: 300px;
-	height: 400px;
-	box-shadow: 0px 0px 5px gray;
-	right: 75px;
-	bottom: 75px;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: 50% 50%;
-	background-image: url(img/backpack.jpg);
-	font-size: 20px;
+    background-image: url(img/papper.jpg);
+    background-size: cover;
+    background-position: center;
+
+    padding: 100px;
+    font-size: 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    box-shadow: inset 0px 0px 30px black;
+}
+
+.img {
+    width: 50%;
+    height: 600px;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+/* ================================= */
+/* КНОПКИ ДЕЙСТВИЙ */
+/* ================================= */
+
+.action {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    flex-wrap: wrap;
+    align-content: center;
+    padding: 20px 80px;
+    background-image: url(img/Wood.jpg);
+    background-size: contain;
+    min-height: 150px;
+    height: auto;
+}
+
+.action button {
+    min-height: 80px;
+    height: auto;
+    width: 300px;
+
+    font-size: 22px;
+    cursor: pointer;
+
+    border: 2px solid black;
+    border-radius: 7px;
+
+    background-color: brown;
+
+    font-weight: 900;
+    color: white;
+
+    margin: 10px;
+    padding: 10px;
+}
+
+/* ================================= */
+/* ИНВЕНТАРЬ */
+/* ================================= */
+
+.Inventory {
+    height: 50px;
+    width: 200px;
+
+    background-color: BurlyWood;
+    font-size: 26px;
+
+    transition: 0.5s;
+}
+
+.Inventory_window {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    z-index: 10;
+
+    width: 300px;
+    height: 400px;
+
+    box-shadow: 0px 0px 5px gray;
+
+    right: 75px;
+    bottom: 75px;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-image: url(img/backpack.jpg);
+
+    font-size: 20px;
     padding: 10px;
     color: white;
-     transition: 0.5s;
+
+    transition: 0.5s;
 }
-.Inventory_text{
+
+/* ================================= */
+/* ФОНОВОЕ ЗАТЕМНЕНИЕ */
+/* ================================= */
+
+.bg {
+    background-color: rgba(0, 0, 0, 0.7);
+
+    height: 100%;
+    width: 100%;
+
+    position: fixed;
+}
+
+/* ================================= */
+/* НАЧАЛЬНЫЙ ЭКРАН */
+/* ================================= */
+
+.main {
+    margin: 40px;
+
+    display: flex;
+    justify-content: center;
+
+    color: white;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    width: 100%;
+    margin-top: 300px;
+}
+
+.buttons button {
+    box-shadow: 0px 0px 3px 1px white;
+
+    width: 200px;
+    height: 50px;
+
+    font-size: 32px;
+    background: none;
+}
+
+.buttons a {
+    text-decoration: none;
+    color: white;
+}
+
+/* ================================= */
+/* ПЛАНШЕТЫ И КОМПЬЮТЕРЫ */
+/* ================================= */
+
+@media (min-width: 651px) {
+
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    .game {
+        flex-shrink: 0;
+    }
+
+    .action {
+        flex: 1 0 auto;
+    }
+
+}
+
+/* ================================= */
+/* ПЛАНШЕТЫ */
+/* ================================= */
+
+@media (min-width: 651px) and (max-width: 1300px) {
+
+    .game {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .character {
+        width: 100%;
+        height: auto;
+        min-height: 380px;
+
+        padding: 35px 60px;
+        font-size: 26px;
+    }
+
+    .img {
+        width: 100%;
+        height: 350px;
+        flex-shrink: 0;
+    }
+
+    .action {
+        width: 100%;
+        min-height: 150px;
+        height: auto;
+
+        padding: 20px 30px;
+
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .action button {
+        flex: 1 1 200px;
+
+        max-width: 300px;
+        min-height: 75px;
+        height: auto;
+
+        font-size: 21px;
+        margin: 3px;
+    }
+
+    .Inventory_window {
+        right: 25px;
+        bottom: 25px;
+    }
+
+}
+
+/* ================================= */
+/* ТЕЛЕФОНЫ */
+/* ================================= */
+
+@media (max-width: 650px) {
+
+    .main {
+        margin: 15px;
+    }
+
+    .game {
+        flex-direction: column;
+    }
+
+    .character {
+        width: 100%;
+        height: auto;
+        min-height: 420px;
+
+        padding: 25px;
+        font-size: 21px;
+    }
+
+    .img {
+        width: 100%;
+        height: 280px;
+    }
+
+    .action {
+        padding: 15px;
+
+        justify-content: center;
+        align-items: center;
+
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .action button {
+        flex: 1 1 140px;
+
+        max-width: none;
+        min-height: 65px;
+        height: auto;
+
+        font-size: 18px;
+        margin: 3px;
+    }
+
+    .Inventory {
+        width: 160px;
+        height: 45px;
+        font-size: 22px;
+    }
+
+    .Inventory_window {
+        width: calc(100% - 30px);
+        max-width: 300px;
+
+        height: min(400px, calc(100dvh - 30px));
+
+        right: 15px;
+        bottom: 15px;
+
+        font-size: 18px;
+    }
+
+    .buttons {
+        margin-top: 150px;
+    }
+
+    .buttons button {
+        font-size: 24px;
+    }
+
+}
+
+/* ================================= */
+/* МАЛЕНЬКИЕ ТЕЛЕФОНЫ */
+/* ================================= */
+
+@media (max-width: 380px) {
+
+    .character {
+        padding: 18px;
+        font-size: 18px;
+    }
+
+    .action button {
+        flex-basis: 100%;
+        font-size: 17px;
+    }
+
+    .Inventory {
+        width: 140px;
+        font-size: 19px;
+    }
+
+    .img {
+        height: 220px;
+    }
 
 }

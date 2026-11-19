@@ -4,10 +4,10 @@ let name;
 	}
 	for (let i = 0; i < name.length; i++) {
 		if (name[i] == " ") {
-			alert("Да пошёл ты! ПРОБЕЛЫ Я ЗАПРЕЩАЮ")
+			alert("Прости, но пробелы я запрещаю")
 			location.reload();
 		}
-	} 	
+	} 	                          
 
 
 // for (var i = 0; i < 5; i++) {
@@ -15,7 +15,7 @@ let name;
 // }
 let Brawl_in_bar = 0;
 let health = 100;
-let cash = 500;
+let cash = 20000;
 let status = "Болеет";
 let engargy = "100";
 let gps = "Город Гарридан";
@@ -171,7 +171,7 @@ function update() {
 
 if (gps == "Рынок 'Драконье Пёрышко'" && thieves == 1 && cash > 19) {
 	let z = Math.random();
-		if (z > 0.4) {
+		if (z > 0.7) {
           alert(name + " шёл по рынку и карманник украл у него 20 золота");
           cash = cash - 20;
                       update();
@@ -292,7 +292,7 @@ function inHospital() {
 			alert("Вы полностью здоровы!")
 		}
 	} else if ( cash < 50){
-		alert("У вас недостаточно бабок! Иди в баню!")
+		alert("У вас недостаточно денег. Мы не будем вас лечить.")
 	} else {
 		alert("Вы и так здоровы!")
 	}
@@ -388,7 +388,7 @@ function chill(){
  function work(){
 alert("Ты решил найти работу")
 if (status == "Очень пьяный" || engargy < 21 ) {
-	alert("Да ты чё я в хламину")
+	alert("Я не в состоянии работать")
 }else{
  let g = Math.random(); //слyчайное число от 0 до 1
 	if (g > 0.7) {
@@ -597,13 +597,13 @@ function fight(){
 			while (health > 1 && enemyHealth > 0){
 				let p = Math.random(); //слyчайное число от 0 до 1
 				if (p > 0.5) {
-				alert("Сильным подзатыльником наносишь емy 15 yрона.")
+				alert("Сильным ударом наносишь емy 15 yрона.")
 				enemyHealth = enemyHealth - 15;
 				health = health - 10;
 				engargy = engargy - 3;
 				alert("Враг, недолго дyмая, наносит 10 yрона. Ваше здоровье: " + health);
                    }else{
-                   	alert("Слабым подзатыльником ты наносишь емy 5 yрона.")
+                   	alert("Слабым ударом ты наносишь емy 5 yрона.")
                    	enemyHealth = enemyHealth - 5;
                    	health = health - 10;
                    	engargy = engargy - 3;
@@ -624,10 +624,10 @@ function fight(){
 				 	alert("Вы побили слyчайного человека, Вам стыдно.... наверно... в любом слyчае вы смогли забрать y него 250 золотых");
 				  cash = cash + 250;
 				 }else if (m > 0.3) {
-				 	alert("Вы побили слyчайного человека, Он оказался лохом каким-то вам не стыдно... ну в любом слyчае вы смогли забрать y него 100 золотых");
+				 	alert("Вы побили слyчайного человека, Он оказался неудачником каким-то, вам не стыдно... ну в любом слyчае вы смогли забрать y него 100 золотых");
 				 	cash = cash + 100;
 				 }else if (m > 0.1) {
-				 	alert("Вы побили бомжа, у него небыло ничего.");
+				 	alert("Вы побили нищего, у него ничего не было.");
 				 } 
 				
 			}
@@ -671,7 +671,7 @@ function monst_forest_fight(){
                 monsterСrystal_common = monsterСrystal_common + 1;  
                 engargy = engargy - 30;        
                 } else {
-					 alert("Фу ну ты и лох конечно у тебя же в начале сила 100 а ты проиграл волку с силой 90")
+					 alert("У тебя же в начале сила 100 а ты проиграл волку с силой 90.")
                      health = 1;
                      engargy = engargy - 30;
 		             status = "Без сознания";
@@ -680,15 +680,15 @@ function monst_forest_fight(){
                 }        
 		} 
 		else if (mon_wolf < 0.5) {
-			    alert("Напал на волка");
-                alert("Это обычный вульфич")
+			    alert("Ты напал на волка");
+                alert("Он выглядит довольно крепким")
                 if (power > Wolfpower2) {
                 alert("Хорошая была битва")  
-                alert("Ты получил 2 пару обычных кристалов")
+                alert("Ты получил пару обычных кристалов")
                 engargy = engargy - 30;
                 monsterСrystal_common = monsterСrystal_common + 2;          
                 } else {
-                       alert("Тебя загрыз волчара")
+                       alert("Тебя погрыз волк")
                        engargy = engargy - 30;
                        health = health - 60;
 		               gps = "Город Гарридан";                     	
@@ -696,15 +696,15 @@ function monst_forest_fight(){
                        }         
 		}
 		else if (mon_wolf < 0.8) {
-			    alert("Напал на волка");
-                alert("Ты наткнулся на вожака стаи")
+			    alert("Ты напал на волка");
+                alert("Это вожак стаи")
                 if (power > Wolfpower3) {
                 alert("Он сражался до последнего...")  
                 alert("Ты получил 1 редкий кристал")
                 engargy = engargy - 30;
                 monsterСrystal_rare = monsterСrystal_rare + 1;          
                 } else {
-                	   alert("Тебя расстерзал волчара")
+                	   alert("Тебя расстерзал волк")
                 	   engargy = engargy - 30;
                        health = health - 80;
 		               gps = "Город Гарридан";                     	
@@ -849,21 +849,20 @@ function TaskThievesKill () {
 //----------------------------------------------------------------------------------------------
 //---------------------------------------------Деревня-------------------------------------------------
 function buyHome(){
+     if (cash > 999 & PurchasedHome !== 0 ) {
         if (confirm("Ты хочешь купить дом за 1000 монет")) {
-		alert("Хэй я тут дом продаю хочешь купить? 1000 монет и он твой.")
-		if (cash > 999 & PurchasedHome !== 0 ) {
+          alert("Хэй я тут дом продаю хочешь купить? 1000 монет и он твой.")
           alert("Ты купил дом!")
           PurchasedHome = 0;
           cash = cash - 1000
           document.getElementById('message').innerHTML="Зайти в дом";
-        }else if(cash < 1000){
-		alert("Да у тебя денег нет, куда ты лезишь?")
+        }
      }else if (PurchasedHome == 0) {
       inHome()
      }
      update()
  }
-}
+
 //-------------------------------------------
 function chillHome(){
 	if ( cash > -1) {
